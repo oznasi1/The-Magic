@@ -1,4 +1,9 @@
 module.exports = {
+  magic:{
+    number:1,
+    title:'להודות על ה"יש"',
+    content:['ברגע שהקצתם בבוקר משנתכם, הכינו רשימה של עשרה דברים בחייכם שאתם אסירי תודה עליהם.','כתבו מדוע אתם אסירי תודה על כל אחד מהפריטים שברשימה.']
+  },
   siteMetadata: {
     title: `Gatsby Default Starter`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,

@@ -1,51 +1,25 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
-import React from "react"
+import React ,{useState} from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-
+import magics from '../data.json'
 import Header from "./header"
+import Content from "./content"
 import "./layout.css"
+import "./content.css"
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        magic {
-          number
-          title
-          content
-        }
-      }
-    }
-  `)
+const Layout = () => {
+
+  const randomMagicIndex = () => Math.floor((Math.random() * 27) + 0);
+
+  const [magicIndex,setMagicIndex] = useState(randomMagicIndex);
+
+  const _setMagicIndex = () => setMagicIndex(randomMagicIndex);
 
   return (
-    <>
-      <Header siteTitle={data.site.magic.number} />
-      <Header siteTitle={data.site.magic.title} />
-      <Header siteTitle={data.site.magic.content} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </>
+    <div className='container'>
+      <Header siteTitle={magics[magicIndex].title} magicIndex={ magicIndex }/>
+      <Content content={magics[magicIndex].content} />
+      <button className='button' onClick={ _setMagicIndex } >Another magic</button>
+    </div>
   )
 }
 

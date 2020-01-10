@@ -1,12 +1,12 @@
-import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
-const Header = ({ siteTitle }) => (
+const Header = ({ siteTitle, magicIndex }) => (
   <header
     style={{
       background: `rebeccapurple`,
       marginBottom: `1.45rem`,
+      display: 'flex'
     }}
   >
     <div
@@ -16,16 +16,11 @@ const Header = ({ siteTitle }) => (
         padding: `1.45rem 1.0875rem`,
       }}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
+      <h1 className='animated infinite bounce delay-2s' style={{ margin: 0, alignContent:'center' }}>
+          {`
+          ${magicIndex+1}.
+          ${siteTitle}
+          `}
       </h1>
     </div>
   </header>

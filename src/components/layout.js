@@ -11,15 +11,27 @@ const Layout = () => {
 
   const [magicIndex, setMagicIndex] = useState(randomMagicIndex)
 
-  const _setMagicIndex = () => setMagicIndex(randomMagicIndex)
+  const setRandomMagicIndex = () => setMagicIndex(randomMagicIndex)
+
+  const increaseMagicIndex = () => setMagicIndex(magicIndex + 1)
+
+  const decreaseMagicIndex = () => setMagicIndex(magicIndex - 1)
 
   return (
     <div className="container">
       <Header siteTitle={magics[magicIndex].title} magicIndex={magicIndex} />
       <Content content={magics[magicIndex].content} />
-      <button className="button" onClick={_setMagicIndex}>
-        קסם אחר
-      </button>
+      <div className="buttonsContainer">
+        <button className="button" onClick={decreaseMagicIndex}>
+          קסם קודם
+        </button>
+        <button className="button" onClick={increaseMagicIndex}>
+          קסם הבא
+        </button>
+        <button className="button" onClick={setRandomMagicIndex}>
+          קסם אחר
+        </button>
+      </div>
     </div>
   )
 }

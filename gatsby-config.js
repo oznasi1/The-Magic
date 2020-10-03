@@ -6,6 +6,7 @@ module.exports = {
   },
   pathPrefix: "/The-Magic",
   plugins: [
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -48,9 +49,10 @@ module.exports = {
     {
       resolve: "gatsby-plugin-load-script",
       options: {
-        src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/TweenLite.min.js",
+        src:
+          "https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/TweenLite.min.js",
       },
-    }
+    },
     // this (optional) plugin enables rogressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

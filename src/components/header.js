@@ -4,9 +4,10 @@ import React from "react"
 const Header = ({ siteTitle, magicIndex }) => (
   <header
     style={{
-      background: `rebeccapurple`,
       marginBottom: `1.45rem`,
-      display: 'flex'
+      display: "flex",
+      color: "white",
+      textAlign: "center",
     }}
   >
     <div
@@ -16,9 +17,12 @@ const Header = ({ siteTitle, magicIndex }) => (
         padding: `1.45rem 1.0875rem`,
       }}
     >
-      <h1 className='animated infinite bounce delay-2s' style={{ margin: 0, alignContent:'center' }}>
-          {`
-          ${magicIndex+1}.
+      <h1
+        className="animated infinite bounce delay-2s"
+        style={{ margin: 0, alignContent: "center" }}
+      >
+        {`
+          ${magicIndex + 1}.
           ${siteTitle}
           `}
       </h1>

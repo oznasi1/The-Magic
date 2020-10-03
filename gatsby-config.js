@@ -28,7 +28,30 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
+    {
+      resolve: "gatsby-plugin-sass",
+      options: {
+        useResolveUrlLoader: true,
+      },
+    },
+    // {
+    //   resolve: 'gatsby-plugin-load-script',
+    //   options: {
+    //     disable: !process.env.SENTRY_DSN, // When do you want to disable it ?
+    //     src: 'https://browser.sentry-cdn.com/5.15.4/bundle.min.js',
+    //     integrity:
+    //       'sha384-Nrg+xiw+qRl3grVrxJtWazjeZmUwoSt0FAVsbthlJ5OMpx0G08bqIq3b/v0hPjhB',
+    //     crossorigin: 'anonymous',
+    //     onLoad: `() => Sentry.init({dsn:"${process.env.SENTRY_DSN}"})`,
+    //   },
+    // },
+    {
+      resolve: "gatsby-plugin-load-script",
+      options: {
+        src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/TweenLite.min.js",
+      },
+    }
+    // this (optional) plugin enables rogressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 import magics from "../data.json"
-import Header from "./header"
+import Header from "./header/header"
 import Content from "./content/content"
 import { Button } from "react-bootstrap"
 import "./layout.css"

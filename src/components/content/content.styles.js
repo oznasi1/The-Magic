@@ -1,9 +1,9 @@
 import styled from "styled-components"
 
-export const ContentContainer = styled.div`
+export const ContentContainer = styled.div.attrs(() => ({
+  className: "ContentContainer",
+}))`
   overflow-y: auto;
-  height: 355px;
-  margin: 10px;
 `
 
 export const Row = styled.div`

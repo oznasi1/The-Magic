@@ -12,8 +12,21 @@ body {
   direction: rtl;
 }
 
+@media only screen and (min-width: 900px) {
+  .ContentContainer {
+    height: 400px;
+    margin: 50px;
+  }
+}
+
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;
+  }
+
+  .ContentContainer {
+    height: 330px;
+    margin: 15px;
+
   }
 }

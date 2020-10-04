@@ -49,7 +49,7 @@ const Layout = () => {
             <Content content={magics[magicIndex].content} />
             <ButtonContainer>
               <Button
-                disabled={magicIndex === 0 ? true : false}
+                disabled={magicIndex !== 0 ? false : true}
                 onClick={decreaseMagicIndex}
               >
                 קסם קודם

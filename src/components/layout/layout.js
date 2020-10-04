@@ -16,9 +16,12 @@ import "./layout.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 const Layout = () => {
-  let currentMagicIndex = localStorage.getItem("magicIndex")
-    ? JSON.parse(localStorage.getItem("magicIndex"))
-    : 0
+  let currentMagicIndex =
+    typeof window !== "undefined" &&
+    window.localStorage &&
+    localStorage.getItem("magicIndex")
+      ? JSON.parse(localStorage.getItem("magicIndex"))
+      : 0
   const [magicIndex, setMagicIndex] = useState(currentMagicIndex)
 
   const increaseMagicIndex = () =>
@@ -28,7 +31,9 @@ const Layout = () => {
     setMagicIndex(magicIndex > 0 ? magicIndex - 1 : 0)
 
   useEffect(() => {
-    localStorage.setItem("magicIndex", magicIndex)
+    if (typeof window !== "undefined" && window.localStorage) {
+      localStorage.setItem("magicIndex", magicIndex)
+    }
   }, [magicIndex])
 
   return (

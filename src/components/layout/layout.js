@@ -33,12 +33,18 @@ const Layout = () => {
         : 0
     setMagicIndex(currentMagicIndex)
 
-    return () => {
-      if (typeof window !== "undefined" && window.localStorage) {
-        localStorage.setItem("magicIndex", magicIndex)
-      }
-    }
+    // return () => {
+    //   if (typeof window !== "undefined" && window.localStorage) {
+    //     localStorage.setItem("magicIndex", magicIndex)
+    //   }
+    // }
   }, [])
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.localStorage) {
+      localStorage.setItem("magicIndex", magicIndex)
+    }
+  }, [magicIndex])
 
   return (
     <LayoutContainer>

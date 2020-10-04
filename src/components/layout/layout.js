@@ -16,13 +16,7 @@ import "./layout.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 const Layout = () => {
-  let currentMagicIndex =
-    typeof window !== "undefined" &&
-    window.localStorage &&
-    localStorage.getItem("magicIndex")
-      ? JSON.parse(localStorage.getItem("magicIndex"))
-      : 0
-  const [magicIndex, setMagicIndex] = useState(currentMagicIndex)
+  const [magicIndex, setMagicIndex] = useState(0)
 
   const increaseMagicIndex = () =>
     setMagicIndex(magicIndex < 27 ? magicIndex + 1 : 0)
@@ -31,10 +25,20 @@ const Layout = () => {
     setMagicIndex(magicIndex > 0 ? magicIndex - 1 : 0)
 
   useEffect(() => {
-    if (typeof window !== "undefined" && window.localStorage) {
-      localStorage.setItem("magicIndex", magicIndex)
+    let currentMagicIndex =
+      typeof window !== "undefined" &&
+      window.localStorage &&
+      localStorage.getItem("magicIndex")
+        ? JSON.parse(localStorage.getItem("magicIndex"))
+        : 0
+    setMagicIndex(currentMagicIndex)
+
+    return () => {
+      if (typeof window !== "undefined" && window.localStorage) {
+        localStorage.setItem("magicIndex", magicIndex)
+      }
     }
-  }, [magicIndex])
+  }, [])
 
   return (
     <LayoutContainer>
@@ -48,10 +52,7 @@ const Layout = () => {
             />
             <Content content={magics[magicIndex].content} />
             <ButtonContainer>
-              <Button
-                disabled={magicIndex !== 0 ? false : true}
-                onClick={decreaseMagicIndex}
-              >
+              <Button disabled={magicIndex === 0} onClick={decreaseMagicIndex}>
                 קסם קודם
               </Button>
               <Button onClick={increaseMagicIndex}>

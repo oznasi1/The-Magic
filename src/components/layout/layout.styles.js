@@ -10,6 +10,7 @@ export const LayoutContainer = styled.div.attrs(() => ({
 export const Container = styled.div`
   position: absolute;
   top: 10px;
+  width: 100%;
 `
 export const Button = styled(Btn).attrs(() => ({
   type: "button",
